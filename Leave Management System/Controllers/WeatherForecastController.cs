@@ -24,3 +24,4 @@ namespace Leave_Management_System.Controllers
         }
     }
 }
+//Setup check
