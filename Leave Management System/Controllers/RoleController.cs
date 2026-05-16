@@ -14,7 +14,7 @@ namespace Leave_Management_System.Controllers
         {
             _roleService = roleService;
         }
-        [HttpGet]
+        [HttpGet] 
         public async Task<IActionResult> GetAllRolesAsync()
         {
             var roles = await _roleService.GetAllRoleAsync();
