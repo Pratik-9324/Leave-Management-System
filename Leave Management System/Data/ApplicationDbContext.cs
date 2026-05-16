@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using Leave_Management_System.Models;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace Leave_Management_System.Data;
 
 public partial class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext()
-    {
-    }
-
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
@@ -24,11 +19,6 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<Rolepermission> Rolepermissions { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -48,6 +38,7 @@ public partial class ApplicationDbContext : DbContext
             entity.HasKey(e => e.RoleId).HasName("PRIMARY");
 
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            entity.Property(e => e.IsActive).HasColumnType("bit(1)");
         });
 
         modelBuilder.Entity<Rolepermission>(entity =>

@@ -22,6 +22,11 @@ public partial class Role
     [Column(TypeName = "datetime")]
     public DateTime CreatedAt { get; set; }
 
+    public bool IsActive { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? UpdatedAt { get; set; }
+
     [InverseProperty("Role")]
     public virtual ICollection<Rolepermission> Rolepermissions { get; set; } = new List<Rolepermission>();
 

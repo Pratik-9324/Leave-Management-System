@@ -1,4 +1,10 @@
+
 using Leave_Management_System.Data;
+using Leave_Management_System.Mappings;
+using Leave_Management_System.Repositories.Implementations;
+using Leave_Management_System.Repositories.Interfaces;
+using Leave_Management_System.Services.Implementations;
+using Leave_Management_System.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +22,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         )
     );
 });
+builder.Services.AddAutoMapper(cfg => { }, typeof(Program).Assembly);
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleRepository,RoleRepository>();
+builder.Services.AddScoped<IRoleService,RoleService>();
 
 var app = builder.Build();
 

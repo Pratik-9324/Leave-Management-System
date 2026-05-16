@@ -55,6 +55,12 @@ public partial class User
     [Column(TypeName = "bit(1)")]
     public ulong IsFirstLogin { get; set; }
 
+    [Column(TypeName = "text")]
+    public string? PasswordResetToken { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? PasswordResetTokenExpiry { get; set; }
+
     [InverseProperty("Manager")]
     public virtual ICollection<User> InverseManager { get; set; } = new List<User>();
 
