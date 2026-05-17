@@ -3,68 +3,77 @@ using Leave_Management_System.DTOs.Roles;
 using Leave_Management_System.Models;
 using Leave_Management_System.Repositories.Interfaces;
 using Leave_Management_System.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Leave_Management_System.Services.Implementations
 {
     public class RoleService : IRoleService
     {
-        private readonly IRoleRepository _roleRepository;
+        private readonly IRepository <Role> _repository;
         private readonly IMapper _mapper;
-        public RoleService(IRoleRepository roleRepository,IMapper mapper){
-            _roleRepository = roleRepository;
+        private readonly ILogger<RoleService> _logger;
+        public RoleService(IRepository<Role> repository,IMapper mapper,ILogger<RoleService> logger){
+            _repository = repository;
             _mapper = mapper;
+            _logger = logger;
         }
-        public async Task<IEnumerable<RoleResponseDTO>> GetAllRoleAsync()
+        public async Task<IEnumerable<RoleResponseDTO>> GetAllRoleAsync(CancellationToken cancellationToken = default)
         {
-            var roleData = await _roleRepository.GetAllAsync();
-            var roleResponse = _mapper.Map<IEnumerable<RoleResponseDTO>>(roleData);
-            return roleResponse;
+            return await _repository.GetAll().OrderBy(r => r.RoleName)
+            .Select(x => new RoleResponseDTO
+            {
+                RoleId = x.Id,
+                RoleName = x.RoleName,
+                Description = x.Description,
+                IsActive = x.IsActive,
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt ?? DateTime.UtcNow
+            }).ToListAsync(cancellationToken);
         }
-        public async Task<RoleResponseDTO?> GetRoleByIdAsync(long roleId)
+        public async Task<RoleResponseDTO?> GetRoleByIdAsync(long roleId, CancellationToken cancellationToken = default)
         {
-            var roleData = await _roleRepository.GetByIdAsync(roleId);
-            if(roleData == null)
+            Role? role = await _repository.GetByIdAsync(roleId,cancellationToken);
+            if(role == null)
             {
                 return null;
             }
-            var roleResponse = _mapper.Map<RoleResponseDTO>(roleData);
-            return roleResponse;
+            return _mapper.Map<RoleResponseDTO>(role);
         }
-        public async Task<RoleResponseDTO> CreateRoleAsync(CreateRoleRequestDTO role)
+        public async Task<RoleResponseDTO> CreateRoleAsync(CreateRoleRequestDTO role,CancellationToken cancellationToken = default)
         {
-            var existingRole = await _roleRepository.GetByNameAsync(role.RoleName);
-            if(existingRole != null)
+            bool exists = await _repository.ExistsAsync(r => r.RoleName == role.RoleName,cancellationToken);
+            if(exists)
             {
-                throw new Exception("Role Already exists");
+                _logger.LogWarning("Role already exists with the name {RoleName}",role.RoleName);
+                throw new Exception("Role already exists");
             }
-            var newRole = _mapper.Map<Role>(role);
-            await _roleRepository.AddAsync(newRole);
-            await _roleRepository.SaveChangesAsync();
-            return _mapper.Map<RoleResponseDTO>(newRole);
-        }
-        public async Task<bool> UpdateRoleAsync(long roleId, UpdateRoleDTO role)
+            Role newrole = _mapper.Map<Role>(role);
+            newrole.IsActive = true;
+            await _repository.AddAsync(newrole,cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
+            _logger.LogInformation("Role created successfully with the name {RoleName}",role.RoleName);
+            return _mapper.Map<RoleResponseDTO>(newrole);
+        }   
+        public async Task<bool> UpdateRoleAsync(long roleId, UpdateRoleDTO role,CancellationToken cancellationToken = default)
         {
-            var existingRole = await _roleRepository.GetByIdAsync(roleId);
-            if(existingRole == null)
+            Role? updatedRole = await _repository.GetByIdAsync(roleId,cancellationToken);
+            if(updatedRole == null)
             {
                 return false;
-            }   
-            existingRole.RoleName = role.RoleName;
-            existingRole.Description = role.Description;
-            existingRole.IsActive = role.IsActive;
-            _roleRepository.UpdateAsync(existingRole);
-            await _roleRepository.SaveChangesAsync();
+            }
+            updatedRole.RoleName = role.RoleName;
+            updatedRole.Description = role.Description;
+            updatedRole.IsActive = role.IsActive;
+            _repository.UpdateAsync(updatedRole);
+            await _repository.SaveChangesAsync(cancellationToken);
+            _logger.LogInformation("Role updated successfully with the name {RoleId}",updatedRole.Id);
             return true;
         }
-        public async Task<bool> DeleteRoleAsync(long roleId)
+        public async Task<bool> DeleteRoleAsync(long roleId,CancellationToken cancellationToken = default)
         {
-            var role = await _roleRepository.GetByIdAsync(roleId);
-            if(role == null)
-            {
-                return false;
-            }
-            _roleRepository.DeleteAsync(role);
-            await _roleRepository.SaveChangesAsync();
+            await _repository.SoftDeleteAsync(roleId,cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
+            _logger.LogInformation("Role Deleted Successfully with the {RoleId}",roleId);
             return true;
         }
 

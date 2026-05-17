@@ -55,7 +55,9 @@ TemporaryDependencyNodeTargetIdentifier=net10.0
 /warnaserror+:NU1605,SYSLIB0011
 
 [sourceFiles]
-Common/ApiResponse.cs
+Common/
+ ApiResponse.cs
+ EntityBase.cs
 Controllers/
  RoleController.cs
  UserController.cs
@@ -70,6 +72,7 @@ DTOs/User/
 Mappings/
  MappingProfile.cs
  RoleMapping.cs
+Middlewares/ExceptionMiddleware.cs
 Models/
  Permission.cs
  Role.cs
@@ -81,10 +84,10 @@ obj/Debug/net10.0/
  Leave Management System.GlobalUsings.g.cs
 Program.cs
 Repositories/Implementations/
- RoleRepository.cs
+ Repository.cs
  UserRepository.cs
 Repositories/Interfaces/
- IRoleRepository.cs
+ IRepository.cs
  IUserRepository.cs
 Services/Implementations/
  RoleService.cs
@@ -92,7 +95,9 @@ Services/Implementations/
 Services/Interfaces/
  IRoleService.cs
  IUserService.cs
-Validators/Roles/CreateRoleRequestValidator.cs
+Validators/Roles/
+ CreateRoleRequestValidator.cs
+ UpdateRoleValidator.cs
 
 [metadataReferences]
 <DOTNET>/packs/Microsoft.AspNetCore.App.Ref/10.0.8/ref/net10.0/
@@ -415,6 +420,7 @@ Validators/Roles/CreateRoleRequestValidator.cs
  microsoft.entityframeworkcore.abstractions/9.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
  microsoft.entityframeworkcore.relational/9.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
  microsoft.entityframeworkcore/9.0.0/lib/net8.0/Microsoft.EntityFrameworkCore.dll
+ microsoft.extensions.dependencymodel/10.0.0/lib/net10.0/Microsoft.Extensions.DependencyModel.dll
  microsoft.identitymodel.abstractions/8.14.0/lib/net9.0/Microsoft.IdentityModel.Abstractions.dll
  microsoft.identitymodel.jsonwebtokens/8.14.0/lib/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
  microsoft.identitymodel.logging/8.14.0/lib/net9.0/Microsoft.IdentityModel.Logging.dll
@@ -424,6 +430,15 @@ Validators/Roles/CreateRoleRequestValidator.cs
  microsoft.openapi/2.4.1/lib/net8.0/Microsoft.OpenApi.dll
  mysqlconnector/2.4.0/lib/net9.0/MySqlConnector.dll
  pomelo.entityframeworkcore.mysql/9.0.0/lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+ serilog.aspnetcore/10.0.0/lib/net10.0/Serilog.AspNetCore.dll
+ serilog.extensions.hosting/10.0.0/lib/net10.0/Serilog.Extensions.Hosting.dll
+ serilog.extensions.logging/10.0.0/lib/net10.0/Serilog.Extensions.Logging.dll
+ serilog.formatting.compact/3.0.0/lib/net8.0/Serilog.Formatting.Compact.dll
+ serilog.settings.configuration/10.0.0/lib/net10.0/Serilog.Settings.Configuration.dll
+ serilog.sinks.console/6.1.1/lib/net8.0/Serilog.Sinks.Console.dll
+ serilog.sinks.debug/3.0.0/lib/net8.0/Serilog.Sinks.Debug.dll
+ serilog.sinks.file/7.0.0/lib/net9.0/Serilog.Sinks.File.dll
+ serilog/4.3.0/lib/net9.0/Serilog.dll
  swashbuckle.aspnetcore.swagger/10.1.7/lib/net10.0/Swashbuckle.AspNetCore.Swagger.dll
  swashbuckle.aspnetcore.swaggergen/10.1.7/lib/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
  swashbuckle.aspnetcore.swaggerui/10.1.7/lib/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll

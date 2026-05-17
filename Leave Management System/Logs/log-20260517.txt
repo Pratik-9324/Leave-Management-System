@@ -1,0 +1,84 @@
+[2026-05-17 00:06:33 INF] HTTP GET / responded 301 in 48.3681 ms
+[2026-05-17 00:06:33 INF] HTTP GET /index.html responded 200 in 163.1393 ms
+[2026-05-17 00:06:33 INF] HTTP GET /index.js responded 200 in 4.9845 ms
+[2026-05-17 00:06:33 INF] HTTP GET /index.css responded 200 in 48.2158 ms
+[2026-05-17 00:06:33 INF] HTTP GET /swagger-ui.css responded 200 in 51.9386 ms
+[2026-05-17 00:06:33 INF] HTTP GET /swagger-ui-bundle.js responded 200 in 51.8566 ms
+[2026-05-17 00:06:33 INF] HTTP GET /swagger-ui-standalone-preset.js responded 200 in 62.0432 ms
+[2026-05-17 00:06:34 INF] HTTP GET /favicon-32x32.png responded 200 in 3.3687 ms
+[2026-05-17 00:06:35 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 359.7921 ms
+[2026-05-17 00:06:47 WRN] Entity 'Permission' has a global query filter defined and is the required end of a relationship with the entity 'Rolepermission'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-05-17 00:06:47 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 00:06:47 INF] HTTP GET /api/Role responded 200 in 2108.5730 ms
+[2026-05-17 00:07:06 INF] Role created successfully with the name Test
+[2026-05-17 00:07:06 INF] HTTP POST /api/Role responded 200 in 455.4735 ms
+[2026-05-17 00:07:50 INF] HTTP GET /index.html responded 304 in 4.6712 ms
+[2026-05-17 00:07:50 INF] HTTP GET /swagger-ui.css responded 304 in 1.5166 ms
+[2026-05-17 00:07:50 INF] HTTP GET /index.css responded 304 in 0.1917 ms
+[2026-05-17 00:07:50 INF] HTTP GET /swagger-ui-bundle.js responded 304 in 0.1191 ms
+[2026-05-17 00:07:50 INF] HTTP GET /swagger-ui-standalone-preset.js responded 304 in 0.1279 ms
+[2026-05-17 00:07:50 INF] HTTP GET /index.js responded 304 in 1.3645 ms
+[2026-05-17 00:07:51 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 18.5541 ms
+[2026-05-17 00:07:51 INF] HTTP GET /favicon-32x32.png responded 304 in 0.3528 ms
+[2026-05-17 00:12:01 INF] HTTP GET /index.html responded 304 in 7.1802 ms
+[2026-05-17 00:12:01 INF] HTTP GET /swagger-ui.css responded 304 in 3.0822 ms
+[2026-05-17 00:12:01 INF] HTTP GET /index.css responded 304 in 1.9199 ms
+[2026-05-17 00:12:01 INF] HTTP GET /swagger-ui-bundle.js responded 304 in 0.1025 ms
+[2026-05-17 00:12:01 INF] HTTP GET /swagger-ui-standalone-preset.js responded 304 in 0.4063 ms
+[2026-05-17 00:12:01 INF] HTTP GET /index.js responded 304 in 4.9695 ms
+[2026-05-17 00:12:02 INF] HTTP GET /favicon-32x32.png responded 304 in 0.4248 ms
+[2026-05-17 00:12:02 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 77.2759 ms
+[2026-05-17 00:13:33 INF] Role created successfully with the name New Test Role
+[2026-05-17 00:13:33 INF] HTTP POST /api/Role responded 200 in 356.0307 ms
+[2026-05-17 00:13:59 INF] HTTP GET /api/Role responded 200 in 43.5150 ms
+[2026-05-17 00:15:25 INF] HTTP GET /index.html responded 304 in 11.7682 ms
+[2026-05-17 00:15:26 INF] HTTP GET /swagger-ui.css responded 304 in 2.2305 ms
+[2026-05-17 00:15:26 INF] HTTP GET /index.css responded 304 in 0.0740 ms
+[2026-05-17 00:15:26 INF] HTTP GET /swagger-ui-bundle.js responded 304 in 0.1322 ms
+[2026-05-17 00:15:26 INF] HTTP GET /swagger-ui-standalone-preset.js responded 304 in 4.7659 ms
+[2026-05-17 00:15:26 INF] HTTP GET /index.js responded 304 in 1.2320 ms
+[2026-05-17 00:15:27 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 20.0422 ms
+[2026-05-17 00:15:27 INF] HTTP GET /favicon-32x32.png responded 304 in 0.2138 ms
+[2026-05-17 00:15:59 INF] Role created successfully with the name Admin
+[2026-05-17 00:15:59 INF] HTTP POST /api/Role responded 200 in 188.3807 ms
+[2026-05-17 00:16:23 INF] HTTP GET /api/Role/4 responded 200 in 126.9575 ms
+[2026-05-17 00:16:54 INF] Role updated successfully with the name 4
+[2026-05-17 00:16:54 INF] HTTP PUT /api/Role/4 responded 200 in 93.3225 ms
+[2026-05-17 00:17:14 INF] HTTP GET /api/Role responded 200 in 23.9264 ms
+[2026-05-17 00:17:33 INF] Role Deleted Successfully with the 4
+[2026-05-17 00:17:33 INF] HTTP DELETE /api/Role/4 responded 200 in 34.7606 ms
+[2026-05-17 00:19:51 INF] HTTP GET /index.html responded 304 in 90.7095 ms
+[2026-05-17 00:19:52 INF] HTTP GET /index.js responded 304 in 1.2686 ms
+[2026-05-17 00:19:52 INF] HTTP GET /swagger-ui.css responded 304 in 20.2659 ms
+[2026-05-17 00:19:52 INF] HTTP GET /swagger-ui-standalone-preset.js responded 304 in 5.6836 ms
+[2026-05-17 00:19:52 INF] HTTP GET /index.css responded 304 in 6.6454 ms
+[2026-05-17 00:19:52 INF] HTTP GET /swagger-ui-bundle.js responded 304 in 11.1545 ms
+[2026-05-17 00:19:52 INF] HTTP GET /favicon-32x32.png responded 304 in 0.3017 ms
+[2026-05-17 00:19:52 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 183.2453 ms
+[2026-05-17 00:20:10 WRN] Entity 'Permission' has a global query filter defined and is the required end of a relationship with the entity 'Rolepermission'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-05-17 00:20:10 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 00:20:11 INF] Role created successfully with the name HR
+[2026-05-17 00:20:11 INF] HTTP POST /api/Role responded 200 in 1978.9443 ms
+[2026-05-17 00:20:18 INF] HTTP GET /api/Role responded 200 in 125.9918 ms
+[2026-05-17 00:20:26 INF] HTTP GET /api/Role/5 responded 200 in 59.2244 ms
+[2026-05-17 00:38:29 INF] HTTP GET /index.html responded 304 in 110.3024 ms
+[2026-05-17 00:38:29 INF] HTTP GET /index.js responded 304 in 2.3793 ms
+[2026-05-17 00:38:29 INF] HTTP GET /index.css responded 304 in 36.9460 ms
+[2026-05-17 00:38:29 INF] HTTP GET /swagger-ui-standalone-preset.js responded 304 in 32.4683 ms
+[2026-05-17 00:38:29 INF] HTTP GET /swagger-ui.css responded 304 in 36.9449 ms
+[2026-05-17 00:38:29 INF] HTTP GET /swagger-ui-bundle.js responded 304 in 31.9574 ms
+[2026-05-17 00:38:30 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 175.3517 ms
+[2026-05-17 00:38:43 WRN] Entity 'Permission' has a global query filter defined and is the required end of a relationship with the entity 'Rolepermission'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-05-17 00:38:43 WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-17 00:38:44 INF] Role created successfully with the name Finance
+[2026-05-17 00:38:44 INF] HTTP POST /api/Role responded 201 in 2202.9495 ms
+[2026-05-17 00:38:53 INF] HTTP GET /api/Role responded 200 in 137.2809 ms
+[2026-05-17 00:39:36 INF] HTTP GET /api/Role/5 responded 200 in 118.5428 ms
+[2026-05-17 00:40:00 INF] Role updated successfully with the name 5
+[2026-05-17 00:40:00 INF] HTTP PUT /api/Role/5 responded 200 in 68.6316 ms
+[2026-05-17 00:40:27 INF] Role updated successfully with the name 5
+[2026-05-17 00:40:27 INF] HTTP PUT /api/Role/5 responded 200 in 22.0310 ms
+[2026-05-17 00:40:40 INF] Role Deleted Successfully with the 4
+[2026-05-17 00:40:40 INF] HTTP DELETE /api/Role/4 responded 200 in 22.1509 ms
+[2026-05-17 00:40:54 INF] Role Deleted Successfully with the 5
+[2026-05-17 00:40:54 INF] HTTP DELETE /api/Role/5 responded 200 in 14.7168 ms

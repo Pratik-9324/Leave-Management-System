@@ -1,35 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+﻿using Leave_Management_System.Common;
 
 namespace Leave_Management_System.Models;
 
-[Table("roles")]
-[Index("RoleName", Name = "RoleName", IsUnique = true)]
-public partial class Role
+public partial class Role : EntityBase
 {
-    [Key]
-    public long RoleId { get; set; }
-
-    [StringLength(100)]
     public string RoleName { get; set; } = null!;
 
-    [StringLength(500)]
     public string? Description { get; set; }
-
-    [Column(TypeName = "datetime")]
-    public DateTime CreatedAt { get; set; }
-
-    public bool IsActive { get; set; }
-
-    [Column(TypeName = "datetime")]
-    public DateTime? UpdatedAt { get; set; }
-
-    [InverseProperty("Role")]
     public virtual ICollection<Rolepermission> Rolepermissions { get; set; } = new List<Rolepermission>();
 
-    [InverseProperty("Role")]
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 }
